@@ -40,4 +40,4 @@ const app = {
   },
 };
 
-window.addEventListener("load", app.init);
+document.addEventListener("DOMContentLoaded", app.init);
