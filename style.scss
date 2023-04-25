@@ -155,7 +155,6 @@ header {
             font-size: 1rem;
             color: #fff;
             transition: 0s;
-
             gap: 2em;
 
             .features {
@@ -188,6 +187,8 @@ header {
                 }
             }
 
+
+
             .btn-sign {
                 display: flex;
                 gap: 1em;
@@ -197,6 +198,10 @@ header {
                     width: 120px;
                 }
             }
+        }
+
+        .menu[aria-expanded="true"] {
+            transform: translateX(0);
         }
     }
 }

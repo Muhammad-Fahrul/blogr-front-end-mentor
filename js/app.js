@@ -5,7 +5,7 @@ const app = {
     featureBtn: document.querySelectorAll(".features .feature"),
   },
 
-  openMenufeature(elTarget) {
+  openMenuFeature(elTarget) {
     const featureList = elTarget.querySelector(".feature-list");
     const height = elTarget.querySelectorAll("li").length;
     featureList.style.height = `${height * 32}px`;
@@ -25,19 +25,25 @@ const app = {
   },
 
   init() {
-    app.$.featureBtn.forEach((featureBtn) => {
-      featureBtn.closest("li").addEventListener("mouseenter", (e) => {
-        app.openMenufeature(e.target.closest("li"));
-      });
-      featureBtn.closest("li").addEventListener("mouseleave", (e) => {
-        app.closeMenuFeature(e.target.closest("li"));
-      });
+    if (app.$.menuBtn.closest("header").clientWidth > 776) {
+      console.log("oke");
+    }
+    app.$.menuBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      app.toggleMenu(e.target);
     });
 
-    app.$.menuBtn.addEventListener("click", (e) => {
-      app.toggleMenu(e.target);
+    app.$.featureBtn.forEach((feauBtn) => {
+      feauBtn.closest("li").addEventListener("mouseenter", (e) => {
+        e.preventDefault();
+        app.openMenuFeature(e.target.closest("li"));
+      });
+      feauBtn.closest("li").addEventListener("mouseleave", (e) => {
+        e.preventDefault();
+        app.closeMenuFeature(e.target.closest("li"));
+      });
     });
   },
 };
 
-document.addEventListener("DOMContentLoaded", app.init);
+document.addEventListener("DOMContentLoaded", app.init());
